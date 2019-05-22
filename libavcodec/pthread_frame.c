@@ -554,6 +554,7 @@ finish:
     return err;
 }
 
+#if HAVE_THREADS
 void ff_thread_report_progress(ThreadFrame *f, int n, int field)
 {
     PerThreadContext *p;
@@ -1011,3 +1012,5 @@ void ff_thread_release_buffer(AVCodecContext *avctx, ThreadFrame *f)
 fail:
     pthread_mutex_unlock(&fctx->buffer_mutex);
 }
+
+#endif
